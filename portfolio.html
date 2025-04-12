@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madivalayya Swamy - Full Stack Developer</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>
+tailwind.config={
+theme:{
+extend:{
+colors:{
+primary:'#4f46e5',
+secondary:'#a855f7'
+},
+borderRadius:{
+'none':'0px',
+'sm':'4px',
+DEFAULT:'8px',
+'md':'12px',
+'lg':'16px',
+'xl':'20px',
+'2xl':'24px',
+'3xl':'32px',
+'full':'9999px',
+'button':'8px'
+}
+}
+}
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+scroll-behavior: smooth;
+}
+.skill-bar {
+height: 8px;
+background-color: #e5e7eb;
+border-radius: 4px;
+overflow: hidden;
+}
+.skill-progress {
+height: 100%;
+border-radius: 4px;
+background-color: #4f46e5;
+background-image: linear-gradient(to right, #4f46e5, #a855f7);
+animation: skillAnimation 1.5s ease-out forwards;
+}
+@keyframes skillAnimation {
+from { width: 0; }
+}
+.timeline-connector {
+position: absolute;
+left: 19px;
+top: 40px;
+bottom: 0;
+width: 2px;
+background-color: #d1d5db;
+}
+input:focus, textarea:focus {
+outline: none;
+border-color: #4f46e5;
+}
+.gradient-text {
+background: linear-gradient(to right, #4f46e5, #a855f7);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-size: 200% auto;
+animation: gradientShift 3s linear infinite;
+}
+@keyframes gradientShift {
+0% { background-position: 0% center; }
+50% { background-position: 100% center; }
+100% { background-position: 0% center; }
+}
+.card-hover {
+transition: all 0.3s ease;
+}
+.card-hover:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+.animate-fade-in {
+animation: fadeIn 0.8s ease-out forwards;
+}
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.animate-pulse-slow {
+animation: pulseSlow 3s infinite;
+}
+@keyframes pulseSlow {
+0%, 100% { transform: scale(1); }
+50% { transform: scale(1.05); }
+}
+.animate-float {
+animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+0% { transform: translateY(0px); }
+50% { transform: translateY(-10px); }
+100% { transform: translateY(0px); }
+}
+.animate-spin-slow {
+animation: spinSlow 8s linear infinite;
+}
+@keyframes spinSlow {
+from { transform: rotate(0deg); }
+to { transform: rotate(360deg); }
+}
+.glow {
+box-shadow: 0 0 15px rgba(79, 70, 229, 0.5);
+transition: box-shadow 0.3s ease;
+}
+.glow:hover {
+box-shadow: 0 0 25px rgba(79, 70, 229, 0.8);
+}
+.btn-shine {
+position: relative;
+overflow: hidden;
+}
+.btn-shine::after {
+content: '';
+position: absolute;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+transform: rotate(30deg);
+transition: 0.5s;
+opacity: 0;
+}
+.btn-shine:hover::after {
+animation: shine 1s;
+}
+@keyframes shine {
+0% { opacity: 0; transform: translateX(-100%) rotate(30deg); }
+100% { opacity: 1; transform: translateX(100%) rotate(30deg); }
+}
+</style>
+</head>
+<body class="bg-white text-gray-800" onload="document.body.classList.add('animate-fade-in')">
+<header class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 shadow-sm">
+<div class="container mx-auto px-6">
+<div class="flex justify-between items-center py-4">
+<a href="#" class="text-xl font-['Pacifico'] bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Madivalayya Swamy</a>
+<nav class="hidden md:flex items-center space-x-8">
+<a href="#about" class="text-gray-600 hover:text-primary transition">About</a>
+<a href="#experience" class="text-gray-600 hover:text-primary transition">Experience</a>
+<a href="#projects" class="text-gray-600 hover:text-primary transition">Projects</a>
+<a href="#achievements" class="text-gray-600 hover:text-primary transition">Achievements</a>
+<a href="#contact" class="px-4 py-2 bg-primary text-white font-medium !rounded-button whitespace-nowrap hover:bg-primary/90 transition shadow-md shadow-primary/20">Contact</a>
+</nav>
+<button class="md:hidden w-10 h-10 flex items-center justify-center">
+<i class="ri-menu-line text-xl text-gray-600"></i>
+</button>
+</div>
+</div>
+</header>
+<div class="h-16"></div> <!-- Spacer for fixed header -->
+<!-- Hero Section -->
+<section class="relative w-full min-h-[600px] flex items-center" style="background-image: url('https://public.readdy.ai/ai/img_res/c8ac536d3882af9709c055086204212f.jpg'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
+<div class="container mx-auto px-6 relative z-10">
+<div class="flex flex-col md:flex-row items-center">
+<div class="w-full md:w-1/2 pr-0 md:pr-12">
+<div class="overflow-hidden mb-4">
+<h1 class="text-4xl md:text-5xl font-bold text-gray-800">
+Hi I'm Madivalayya Swamy
+<span class="inline-block" id="changing-text">Full Stack Developer</span>
+</h1>
+</div>
+<script>
+(function() {
+const texts = ["Full Stack Developer", "React Specialist", "Node.js Expert", "UI/UX Enthusiast"];
+let currentIndex = 0;
+const textElement = document.getElementById('changing-text');
+textElement.style.opacity = "0";
+textElement.style.transform = "translateY(20px)";
+textElement.style.display = "block";
+textElement.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+textElement.style.color = "#4f46e5";
+function changeText() {
+textElement.style.opacity = "0";
+textElement.style.transform = "translateY(20px)";
+setTimeout(() => {
+currentIndex = (currentIndex + 1) % texts.length;
+textElement.textContent = texts[currentIndex];
+textElement.style.opacity = "1";
+textElement.style.transform = "translateY(0)";
+}, 500);
+}
+// Initial display
+setTimeout(() => {
+textElement.textContent = texts[0];
+textElement.style.opacity = "1";
+textElement.style.transform = "translateY(0)";
+}, 500);
+setInterval(changeText, 3000);
+// Add scroll animation
+document.addEventListener('DOMContentLoaded', function() {
+const animateOnScroll = function() {
+const elements = document.querySelectorAll('.card-hover, .skill-bar, .timeline-connector');
+elements.forEach(element => {
+const elementPosition = element.getBoundingClientRect().top;
+const screenPosition = window.innerHeight / 1.2;
+if (elementPosition < screenPosition) {
+element.classList.add('animate-fade-in');
+}
+});
+};
+window.addEventListener('scroll', animateOnScroll);
+animateOnScroll(); // Run once on load
+});
+})();
+</script>
+<p class="text-lg text-gray-600 mb-8">I'm a passionate full stack developer with expertise in building robust web applications. I specialize in creating scalable solutions that solve real-world problems with clean, efficient code.</p>
+<div class="flex flex-wrap gap-4">
+<a href="#projects" class="px-6 py-3 bg-primary text-white font-medium !rounded-button whitespace-nowrap hover:bg-primary/90 transition shadow-lg shadow-primary/20 btn-shine">View Projects</a>
+<a href="#contact" class="px-6 py-3 bg-gray-100 border border-gray-200 text-gray-700 font-medium !rounded-button whitespace-nowrap hover:bg-gray-200 transition shadow-md btn-shine">Contact Me</a>
+</div>
+</div>
+<div class="w-full md:w-1/2 flex justify-center mt-8 md:mt-0">
+<div class="relative animate-float">
+<img src="https://static.readdy.ai/image/221565695afbef9a785fada732cebcae/dfc6771c911b77cb4a54715b8b3bf246.jpeg" alt="Madivalayya Swamy" class="w-64 h-64 object-cover rounded-full border-4 border-white shadow-xl glow">
+<div class="absolute -bottom-4 -right-4 bg-primary text-white rounded-full p-4 shadow-lg animate-spin-slow">
+<i class="ri-code-s-slash-line ri-lg"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Me Section -->
+<section id="about" class="py-20 bg-gray-50" style="background-image: url('https://readdy.ai/api/search-image?query=subtle light background texture with minimal geometric patterns, light blue and purple hints, perfect for about me section background in light theme, professional and clean, very subtle tech-inspired pattern that doesnt distract from text content, bright and airy feel&width=1920&height=600&seq=about&flag=35302aeffcda534f41a5decc94127d4b_bg&orientation=landscape&removebg=false'); background-size: cover; background-position: center; background-attachment: fixed;">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl font-bold text-center gradient-text mb-12 animate-fade-in">About Me</h2>
+<div class="flex flex-col md:flex-row gap-12">
+<div class="w-full md:w-1/2">
+<h3 class="text-xl font-semibold text-gray-800 mb-4">Who I Am</h3>
+<p class="text-gray-600 mb-6">I'm a detail-oriented full stack developer with over 5 years of experience in building web applications. My passion lies in creating efficient, scalable, and user-friendly solutions that deliver exceptional user experiences.</p>
+<h3 class="text-xl font-semibold text-gray-800 mb-4">Education</h3>
+<div class="mb-4">
+<h4 class="font-medium text-gray-800">Master of Computer Applications</h4>
+<p class="text-gray-500">University of Technology, 2018-2020</p>
+</div>
+<div class="mb-4">
+<h4 class="font-medium text-gray-800">Bachelor of Computer Science</h4>
+<p class="text-gray-500">National Institute of Engineering, 2014-2018</p>
+</div>
+</div>
+<div class="w-full md:w-1/2">
+<h3 class="text-xl font-semibold text-gray-800 mb-6">Technical Skills</h3>
+<div class="mb-6">
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">JavaScript/TypeScript</span>
+<span class="text-gray-500">92%</span>
+</div>
+<div class="skill-bar bg-gray-200">
+<div class="skill-progress" style="width: 92%"></div>
+</div>
+</div>
+<div class="mb-6">
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">React/Next.js</span>
+<span class="text-gray-500">88%</span>
+</div>
+<div class="skill-bar bg-gray-200">
+<div class="skill-progress" style="width: 88%"></div>
+</div>
+</div>
+<div class="mb-6">
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">Node.js/Express</span>
+<span class="text-gray-500">85%</span>
+</div>
+<div class="skill-bar bg-gray-200">
+<div class="skill-progress" style="width: 85%"></div>
+</div>
+</div>
+<div class="mb-6">
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">MongoDB/SQL</span>
+<span class="text-gray-500">80%</span>
+</div>
+<div class="skill-bar bg-gray-200">
+<div class="skill-progress" style="width: 80%"></div>
+</div>
+</div>
+<div class="mb-6">
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">HTML/CSS/Tailwind</span>
+<span class="text-gray-500">95%</span>
+</div>
+<div class="skill-bar bg-gray-200">
+<div class="skill-progress" style="width: 95%"></div>
+</div>
+</div>
+<div class="mb-6">
+<div class="flex justify-between mb-2">
+<span class="text-gray-700 font-medium">Docker/CI/CD</span>
+<span class="text-gray-500">78%</span>
+</div>
+<div class="skill-bar bg-gray-200">
+<div class="skill-progress" style="width: 78%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience Section -->
+<section id="experience" class="py-20 bg-white" style="background-image: url('https://readdy.ai/api/search-image?query=extremely subtle professional background with light gray geometric patterns, very faint tech-inspired grid or blueprint elements, perfect for experience section background in light theme, almost invisible pattern that adds depth without distracting, clean and minimal design with very light texture, bright and airy feel&width=1920&height=600&seq=exp&flag=783d3a435cff80f0c4c6d3e2a46f4d8f_bg&orientation=landscape&removebg=false'); background-size: cover; background-position: center; background-attachment: fixed;">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl font-bold text-center gradient-text mb-12 animate-fade-in">Professional Experience</h2>
+<div class="max-w-3xl mx-auto">
+<div class="relative pl-12 pb-12">
+<div class="absolute left-0 top-0 w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+<i class="ri-briefcase-line text-white"></i>
+</div>
+<div class="timeline-connector"></div>
+<div class="bg-white p-6 rounded shadow-sm border border-gray-200 card-hover animate-fade-in" style="animation-delay: 0.2s;">
+<span class="inline-block px-3 py-1 bg-primary/20 text-primary text-sm font-medium rounded mb-3">June 2021 - Present</span>
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Full Stack Developer</h3>
+<h4 class="text-gray-500 mb-4">Garden City University</h4>
+<h5 class="font-medium text-gray-700 mb-2">Key Responsibilities:</h5>
+<ul class="list-disc pl-5 mb-4 text-gray-600 space-y-1">
+<li>Developed and maintained the university's student management system serving over 15,000 users</li>
+<li>Implemented responsive front-end interfaces using React and Tailwind CSS</li>
+<li>Built RESTful APIs with Node.js and Express for data management</li>
+<li>Designed and optimized MongoDB database schemas for efficient data storage</li>
+<li>Implemented authentication and authorization systems using JWT</li>
+</ul>
+<h5 class="font-medium text-gray-700 mb-2">Key Achievements:</h5>
+<ul class="list-disc pl-5 text-gray-600 space-y-1">
+<li>Maintained 99.99% system availability through robust error handling and monitoring</li>
+<li>Reduced page load time by 65% through code optimization and lazy loading</li>
+<li>Implemented automated testing that increased code coverage to 92%</li>
+<li>Led a team of 4 developers to deliver features ahead of schedule</li>
+</ul>
+</div>
+</div>
+<div class="relative pl-12 pb-12">
+<div class="absolute left-0 top-0 w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
+<i class="ri-code-line text-white"></i>
+</div>
+<div class="bg-white p-6 rounded shadow-sm border border-gray-200 card-hover animate-fade-in" style="animation-delay: 0.2s;">
+<span class="inline-block px-3 py-1 bg-secondary/20 text-secondary text-sm font-medium rounded mb-3">Jan 2019 - May 2021</span>
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Web Developer</h3>
+<h4 class="text-gray-500 mb-4">TechSolutions Inc.</h4>
+<h5 class="font-medium text-gray-700 mb-2">Key Responsibilities:</h5>
+<ul class="list-disc pl-5 mb-4 text-gray-600 space-y-1">
+<li>Developed front-end interfaces for client websites using HTML, CSS, and JavaScript</li>
+<li>Built custom WordPress themes and plugins for content management</li>
+<li>Collaborated with designers to implement pixel-perfect UI components</li>
+<li>Maintained and updated existing client websites</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section id="projects" class="py-20 bg-gray-50" style="background-image: url('https://readdy.ai/api/search-image?query=extremely subtle light background with very faint code or programming elements, almost invisible pattern that adds depth without distracting, perfect for projects section background in light theme, clean and minimal design with very light texture, hints of technology theme without being obvious, bright and airy feel&width=1920&height=600&seq=projects&flag=6d20e27083438a1589deac3ffeb7c4dd_bg&orientation=landscape&removebg=false'); background-size: cover; background-position: center; background-attachment: fixed;">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl font-bold text-center gradient-text mb-12 animate-fade-in">Featured Projects</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Project 1 -->
+<div class="bg-white rounded shadow-md overflow-hidden border border-gray-200 transition card-hover animate-fade-in" style="animation-delay: 0.3s;">
+<div class="h-64 overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/8502dd7e7ce8ca5c8c2eac02c116a212.jpg" alt="Flowcus Project" class="w-full h-full object-cover object-top transition hover:scale-105">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Flowcus</h3>
+<p class="text-gray-600 mb-4">A productivity application that combines the Pomodoro technique with task management to help users achieve deep work and maintain focus.</p>
+<div class="mb-4">
+<h4 class="text-sm font-medium text-gray-500 mb-2">Technologies Used:</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-gradient-to-r from-primary/20 to-secondary/20 text-primary text-xs font-medium rounded">React</span>
+<span class="px-3 py-1 bg-gradient-to-r from-primary/20 to-secondary/20 text-primary text-xs font-medium rounded">Node.js</span>
+<span class="px-3 py-1 bg-gradient-to-r from-primary/20 to-secondary/20 text-primary text-xs font-medium rounded">MongoDB</span>
+<span class="px-3 py-1 bg-gradient-to-r from-primary/20 to-secondary/20 text-primary text-xs font-medium rounded">Express</span>
+<span class="px-3 py-1 bg-gradient-to-r from-primary/20 to-secondary/20 text-primary text-xs font-medium rounded">Tailwind CSS</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<a href="#" class="text-primary font-medium flex items-center hover:underline">
+<span>View Details</span>
+<i class="ri-arrow-right-line ml-1"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-200 rounded-full hover:bg-gray-300 transition">
+<i class="ri-github-fill text-gray-700"></i>
+</a>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="bg-white rounded shadow-md overflow-hidden border border-gray-200 transition card-hover animate-fade-in" style="animation-delay: 0.3s;">
+<div class="h-64 overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/1c81a666791cd1afb1afeb481889afc3.jpg" alt="VigilEye Project" class="w-full h-full object-cover object-top transition hover:scale-105">
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-white mb-2">VigilEye</h3>
+<p class="text-gray-300 mb-4">An intelligent surveillance system that uses computer vision and machine learning to detect unusual activities and provide real-time alerts to security personnel.</p>
+<div class="mb-4">
+<h4 class="text-sm font-medium text-gray-500 mb-2">Technologies Used:</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-gradient-to-r from-primary/20 to-secondary/20 text-primary text-xs font-medium rounded">Python</span>
+<span class="px-3 py-1 bg-gradient-to-r from-primary/20 to-secondary/20 text-primary text-xs font-medium rounded">TensorFlow</span>
+<span class="px-3 py-1 bg-gradient-to-r from-primary/20 to-secondary/20 text-primary text-xs font-medium rounded">React</span>
+<span class="px-3 py-1 bg-gradient-to-r from-primary/20 to-secondary/20 text-primary text-xs font-medium rounded">Flask</span>
+<span class="px-3 py-1 bg-gradient-to-r from-primary/20 to-secondary/20 text-primary text-xs font-medium rounded">WebSockets</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<a href="#" class="text-primary font-medium flex items-center hover:underline">
+<span>View Details</span>
+<i class="ri-arrow-right-line ml-1"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-200 rounded-full hover:bg-gray-300 transition">
+<i class="ri-github-fill text-gray-700"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Achievements Section -->
+<section id="achievements" class="py-20 bg-white" style="background-image: url('https://readdy.ai/api/search-image?query=subtle light gray background with very faint trophy or achievement patterns, professional light theme, perfect for achievements section background, almost invisible elegant pattern that adds sophistication without distracting, clean minimal design with very light texture, bright and airy feel&width=1920&height=600&seq=achieve&flag=cd7c24b52158a7c4059d8a0261014fb0_bg&orientation=landscape&removebg=false'); background-size: cover; background-position: center; background-attachment: fixed;">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl font-bold text-center gradient-text mb-12 animate-fade-in">Achievements</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+<!-- Achievement 1 -->
+<div class="bg-white p-6 rounded shadow-sm border border-gray-200 card-hover animate-fade-in" style="animation-delay: 0.2s;">
+<div class="flex items-start mb-4">
+<div class="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+<i class="ri-trophy-line text-white text-xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-gray-800">Web Development Competition Winner</h3>
+<p class="text-gray-500 text-sm">December 2023</p>
+</div>
+</div>
+<p class="text-gray-600">Won first place in the National Web Development Challenge by creating an innovative school management system that streamlined teacher-parent communication by 60% and reduced administrative workload by 45%.</p>
+</div>
+<!-- Achievement 2 -->
+<div class="bg-white p-6 rounded shadow-sm border border-gray-200 card-hover animate-fade-in" style="animation-delay: 0.2s;">
+<div class="flex items-start mb-4">
+<div class="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+<i class="ri-code-box-line text-white text-xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-gray-800">Skill India Hackathon Finalist</h3>
+<p class="text-gray-500 text-sm">August 2022</p>
+</div>
+</div>
+<p class="text-gray-600">Selected as a finalist among 5,000+ participants for developing an AI-powered solution that improved healthcare accessibility in rural areas, connecting patients with specialists and reducing diagnosis time by 75%.</p>
+</div>
+<!-- Achievement 3 -->
+<div class="bg-white p-6 rounded shadow-sm border border-gray-200 card-hover animate-fade-in" style="animation-delay: 0.2s;">
+<div class="flex items-start mb-4">
+<div class="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+<i class="ri-article-line text-white text-xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-gray-800">Published Research Paper</h3>
+<p class="text-gray-500 text-sm">March 2021</p>
+</div>
+</div>
+<p class="text-gray-600">Co-authored a research paper on "Optimizing Database Performance in Large-Scale Web Applications" that was published in the International Journal of Computer Science and featured at the ICSE conference.</p>
+</div>
+<!-- Achievement 4 -->
+<div class="bg-white p-6 rounded shadow-sm border border-gray-200 card-hover animate-fade-in" style="animation-delay: 0.2s;">
+<div class="flex items-start mb-4">
+<div class="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+<i class="ri-community-line text-white text-xl"></i>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-gray-800">Open Source Contribution</h3>
+<p class="text-gray-500 text-sm">Ongoing</p>
+</div>
+</div>
+<p class="text-gray-600">Active contributor to several open source projects including React, with over 30 accepted pull requests. Developed a popular npm package for form validation that has been downloaded more than 50,000 times.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-gray-50" style="background-image: url('https://readdy.ai/api/search-image?query=extremely subtle light background with very faint communication or contact themed elements, almost invisible pattern that adds depth without distracting, perfect for contact section background in light theme, clean and minimal design with very light texture, professional and elegant, bright and airy feel&width=1920&height=600&seq=contact&flag=c0aa31f0263dbcdc3ec58d136702a593_bg&orientation=landscape&removebg=false'); background-size: cover; background-position: center; background-attachment: fixed;">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl font-bold text-center gradient-text mb-12 animate-fade-in">Get In Touch</h2>
+<div class="flex flex-col md:flex-row gap-12 max-w-4xl mx-auto">
+<div class="w-full md:w-1/2">
+<form class="space-y-6">
+<div>
+<label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+<input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded bg-white text-gray-800 focus:ring-2 focus:ring-primary/20" placeholder="Your name">
+</div>
+<div>
+<label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+<input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded bg-white text-gray-800 focus:ring-2 focus:ring-primary/20" placeholder="your.email@example.com">
+</div>
+<div>
+<label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+<textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded resize-none bg-white text-gray-800 focus:ring-2 focus:ring-primary/20" placeholder="Your message..."></textarea>
+</div>
+<button type="submit" class="px-6 py-3 bg-primary text-white font-medium !rounded-button whitespace-nowrap hover:bg-primary/90 transition w-full shadow-lg shadow-primary/20 btn-shine">Send Message</button>
+</form>
+</div>
+<div class="w-full md:w-1/2">
+<div class="bg-white p-6 rounded shadow-sm border border-gray-200 h-full">
+<h3 class="text-xl font-semibold text-gray-800 mb-6">Contact Information</h3>
+<div class="space-y-4">
+<div class="flex items-start">
+<div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mr-4 flex-shrink-0 animate-pulse-slow">
+<i class="ri-mail-line text-white"></i>
+</div>
+<div>
+<h4 class="text-sm font-medium text-gray-500">Email</h4>
+<a href="mailto:mswamy6908@gmail.com" class="text-gray-800 hover:text-primary">mswamy6908@gmail.com</a>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mr-4 flex-shrink-0 animate-pulse-slow">
+<i class="ri-phone-line text-white"></i>
+</div>
+<div>
+<h4 class="text-sm font-medium text-gray-500">Phone</h4>
+<a href="tel:7676986257" class="text-gray-800 hover:text-primary">7676986257</a>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mr-4 flex-shrink-0 animate-pulse-slow">
+<i class="ri-github-fill text-white"></i>
+</div>
+<div>
+<h4 class="text-sm font-medium text-gray-500">GitHub</h4>
+<a href="https://github.com/mswamy08/Mswamy" target="_blank" class="text-gray-800 hover:text-primary">github.com/mswamy08/Mswamy</a>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mr-4 flex-shrink-0 animate-pulse-slow">
+<i class="ri-linkedin-fill text-white"></i>
+</div>
+<div>
+<h4 class="text-sm font-medium text-gray-500">LinkedIn</h4>
+<a href="https://linkedin.com/in/Mswamy" target="_blank" class="text-gray-800 hover:text-primary">linkedin.com/in/Mswamy</a>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<h4 class="text-sm font-medium text-gray-500 mb-4">Follow Me</h4>
+<div class="flex space-x-3">
+<a href="#" class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition">
+<i class="ri-twitter-fill text-gray-600"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition">
+<i class="ri-instagram-line text-gray-600"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition">
+<i class="ri-dribbble-line text-gray-600"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition">
+<i class="ri-medium-line text-gray-600"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="py-8 bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800">
+<div class="container mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<div class="mb-4 md:mb-0">
+<h2 class="text-2xl font-['Pacifico'] bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Madivalayya Swamy</h2>
+<p class="text-gray-600 mt-1">Full Stack Developer</p>
+</div>
+<div class="text-center md:text-right">
+<p class="text-gray-600">© 2025 Madivalayya Swamy. All rights reserved.</p>
+<p class="text-gray-500 text-sm mt-1">Last updated: April 10, 2025</p>
+</div>
+</div>
+</div>
+</footer>
+</body>
+</html>
